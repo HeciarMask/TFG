@@ -38,7 +38,7 @@ body {
     background-color: rgb(177, 177, 177);
     padding: 0.5rem;
     border-radius: 0.8rem;
-    /* height: 28rem; */
+    width: 18rem;
 }
 
 .tarjeta .img-tarjeta {
@@ -125,9 +125,41 @@ form label {
 
 .chat-box .chat-body {
     height: calc(100% - 3rem);
-    background-color: aquamarine;
+    background-color: rgb(131, 196, 248);
     border-radius: 0 0 1.5rem 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
+
+.chat-body .chat-mensajes{
+    height: calc(100% - 3.5rem);
+}
+
+.chat-body .chat-input{
+    width: 98%;
+    height: 3rem;
+    background-color: rgb(4, 124, 84);
+    border: 5px solid rgb(2, 94, 63);
+    border-radius: 2rem 2rem 2rem 2rem;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+}
+
+.chat-input #input-texto{
+    width: calc(100% - 2rem);
+    border-radius: 1rem 1rem 1rem 1rem ;
+}
+
+.chat-input #input-button{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    padding: 0px;
+    font-size: 25px;
+    line-height: 1px;
+}
+
 /* MEDIAS */
 
 @media (min-width: 1600px) {
