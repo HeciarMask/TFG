@@ -1,0 +1,137 @@
+body {
+    height: 92vh;
+}
+/* main{
+    height: 100%;
+} */
+.filtros {
+    background-color: rgb(255, 88, 88);
+    margin-left: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+}
+
+.filtros .filtro {
+    padding: 1rem;
+    margin: 0.25rem;
+    background-color: red;
+    border-radius: 1rem;
+    border-bottom: 1px solid gray;
+}
+.filtro-titulo {
+    font-size: 1.5rem;
+}
+
+.catalogo {
+    background-color: blue;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+}
+
+.catalogo .tarjetas {
+    margin: 1rem;
+    justify-content: flex-start;
+}
+
+.tarjetas .tarjeta {
+    background-color: rgb(177, 177, 177);
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    /* height: 28rem; */
+}
+
+.tarjeta .img-tarjeta {
+    border-radius: 50% 50% 50% 50%;
+    aspect-ratio: 1 / 1;
+    height: 18rem;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.img-tarjeta img {
+    height: 100%;
+    width: auto;
+}
+
+form ul {
+    list-style-type: none;
+}
+
+form li {
+    margin: 1rem;
+}
+
+form label {
+    display: block;
+}
+
+.contactos {
+    height: 48rem;
+}
+
+.contactos .lista-contactos {
+    height: 100%;
+    background-color: rgb(7, 122, 84);
+    border-radius: 1.5rem 0 0 1.5rem;
+    padding-right: 0;
+    overflow: scroll;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.lista-contactos .lista-header {
+    height: 3rem;
+    padding-left: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.lista-contactos .lista-body {
+    padding-right: 0;
+}
+
+.lista-body .contacto {
+    height: 3.5rem;
+    padding-left: 1.5rem;
+    border-bottom: 5px solid;
+    border-color: rgba(0, 0, 0, 0.219);
+    background-color: rgb(91, 170, 145);
+    display: flex;
+    align-items: center;
+}
+
+.lista-contactos .lista-body .contacto:first-child {
+    border-radius: 1rem 0 0 0;
+}
+
+.lista-contactos .lista-body .contacto:last-child {
+    border-radius: 0 0 0 1rem;
+}
+
+.contactos .chat-box {
+    height: 100%;
+}
+
+.chat-box .chat-header {
+    height: 3rem;
+    padding-left: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: rgb(0, 170, 113);
+    border-radius: 0 1.5rem 0 0;
+}
+
+.chat-box .chat-body {
+    height: calc(100% - 3rem);
+    background-color: aquamarine;
+    border-radius: 0 0 1.5rem 0;
+}
+/* MEDIAS */
+
+@media (min-width: 1600px) {
+    .container {
+        max-width: 90%;
+    }
+}
