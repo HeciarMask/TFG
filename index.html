@@ -17,7 +17,7 @@
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/">Inicio</a>
+                    <a class="navbar-brand" href="#">Enseñanzas Barrionuevo</a>
                     <button
                         class="navbar-toggler"
                         type="button"
@@ -32,7 +32,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active" aria-current="page" href="/">Encontrar profesor</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="cuenta_profesor.html">Cuenta</a>
@@ -44,14 +44,13 @@
         </header>
         <main>
             <div class="container">
-                <div class="row">
-                    <div class="col-2 filtros">
-                        <div class="row filtro">
-                            <div class="col-12 filtro-titulo text-center">Filtros</div>
-                        </div>
-                        <div class="row filtro">
-                            <div class="col-12">
-                                Nivel: <br />
+                <div class="contenido">
+                    <div class="row filtros">
+                        <div class="filtro">
+                            <div class="filtro-tittle">
+                                Nivel:
+                            </div>
+                            <div class="filtro-value">
                                 <select name="nivel" id="id_nivel">
                                     <option value="todo">Cualquiera</option>
                                     <option value="uni">Universidad</option>
@@ -63,8 +62,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 catalogo">
-                        <div class="row tarjetas gx-2">
+                    <div class="catalogo">
+                        <div class="row tarjetas">
                             <div class="card tarjeta">
                                 <div class="img-tarjeta">
                                     <img
@@ -74,8 +73,12 @@
                                     />
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item nombre-trajeta">An item</li>
-                                    <li class="list-group-item nivel-tarjeta">A second item</li>
+                                    <li class="list-group-item nombre-trajeta">Raúl Rodriguez</li>
+                                    <li class="list-group-item nivel-tarjeta">Bachillerato</li>
+                                    <li class="list-group-item desc-tarjeta">
+                                        Estoy preparado para dar clases tanto en Bachillerato como en grado
+                                        medio.
+                                    </li>
                                 </ul>
                                 <div class="card-body">
                                     <a href="#" class="card-link">Card link</a>
