@@ -2,6 +2,10 @@ body {
     height: 92vh;
 }
 
+.container-fluid .navbar-titulo{
+    margin-left: auto;
+}
+
 .contenido{
     display: flex;
     flex-direction: column;
