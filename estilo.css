@@ -96,11 +96,18 @@ form label {
 }
 
 .contactos {
-    height: 48rem;
+    height: 80vh;
+    min-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: initial;
 }
 
 .contactos .lista-contactos {
     height: 100%;
+    width: 8rem;
     background-color: rgb(7, 122, 84);
     border-radius: 1.5rem 0 0 1.5rem;
     padding-right: 0.3rem;
@@ -147,6 +154,7 @@ form label {
 
 .contactos .chat-box {
     height: 100%;
+    width: 90%;
 }
 
 .chat-box .chat-header {
@@ -176,9 +184,12 @@ form label {
 .chat-mensajes .mensaje {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .mensaje .mensaje-entrante {
+    position: relative;
+    left: -1rem;
     height: fit-content;
     width: fit-content;
     padding: 0.7rem;
@@ -188,6 +199,8 @@ form label {
 }
 
 .mensaje .mensaje-saliente {
+    position: relative;
+    right: -1rem;
     height: fit-content;
     width: fit-content;
     align-self: flex-end;
