@@ -1,0 +1,30 @@
+.login {
+    height: 100%;
+    width: 100%;
+    max-width: 28rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6rem;
+    padding: 1rem 3rem 3rem 3rem;
+    background-color: rgb(116, 182, 116);
+    border-radius: 2rem;
+}
+
+.login fieldset {
+    margin-top: 1rem;
+}
+
+.login .campo {
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.login .campo input {
+    width: 100%;
+}
+
+.login input[type="submit"] {
+    margin-top: 1rem;
+    width: 100%;
+}

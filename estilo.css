@@ -6,6 +6,10 @@ body {
     margin-left: auto;
 }
 
+.nav-item div {
+    margin: auto;
+}
+
 .contenido{
     display: flex;
     flex-direction: column;

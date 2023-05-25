@@ -10,7 +10,7 @@ $conn = mysqli_connect("localhost", "root", "", "barrionuevo");
 function comprobar_profesor($email, $clave)
 {
 	$bd = mysqli_connect("localhost", "root", "", "barrionuevo");
-	$sql = "SELECT nombre, email FROM profesores WHERE email = '$email' 
+	$sql = "SELECT nombre, email FROM usuarios WHERE tipo='profe' AND email = '$email' 
 			AND passwd = '$clave'";
 	$resul = mysqli_query($bd, $sql);
 	if ($fila = mysqli_fetch_assoc($resul)) {
@@ -23,7 +23,7 @@ function comprobar_profesor($email, $clave)
 function comprobar_alumno($email, $clave)
 {
 	$bd = mysqli_connect("localhost", "root", "", "barrionuevo");
-	$sql = "SELECT nombre, email FROM alumnos WHERE email = '$email' 
+	$sql = "SELECT nombre, email FROM usuarios WHERE tipo='alumno' AND email = '$email' 
 			AND passwd = '$clave'";
 	$resul = mysqli_query($bd, $sql);
 	if ($fila = mysqli_fetch_assoc($resul)) {

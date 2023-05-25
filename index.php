@@ -18,7 +18,7 @@ if (isset($_POST["correo"])) {
         if ($tipo === "alumno") {
             header("Location: catalogo.html");
         } elseif ($tipo === "profe") {
-            header("Location: cuenta_profesor.html");
+            header("Location: cuenta_profesor.php");
         }
         return;
     }
@@ -30,33 +30,41 @@ if (isset($_POST["correo"])) {
 <head>
     <title>Formulario de login</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="login.css" />
 </head>
 
 <body>
-    <?php if (isset($_GET["redirigido"])) {
-        echo "<p>Haga login para continuar</p>";
-    } ?>
-    <?php if (isset($err) and $err == true) {
-        echo "<p> Revise correo y contraseña</p>";
-    } ?>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-        <label for="correo">Correo</label>
-        <input value="<?php if (isset($correo)) echo $correo; ?>" id="correo" name="correo" type="text">
-        <label for="clave">Clave</label>
-        <input id="clave" name="clave" type="password">
-        <fieldset class="elige-tipo">
-            <legend>Selecciona tu tipo de usuario:</legend>
-            <div class="tipo">
-                <label for="alumno">Alumno</label>
-                <input type="radio" name="tipo" id="alumno" value="alumno" checked>
+    <div class="login">
+        <h1>Enseñanzas Barrionuevo</h1>
+        <?php if (isset($_GET["redirigido"])) {
+            echo "<p>Haga login para continuar</p>";
+        } ?>
+        <?php if (isset($err) and $err == true) {
+            echo "<p> Revise correo y contraseña</p>";
+        } ?>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+            <div class="campo">
+                <label for="correo">Correo</label>
+                <input value="<?php if (isset($correo)) echo $correo; ?>" id="correo" name="correo" type="text">
             </div>
-            <div class="tipo">
-                <label for="profe">Profesor</label>
-                <input type="radio" name="tipo" id="profe" value="profe">
+            <div class="campo">
+                <label for="clave">Clave</label>
+                <input id="clave" name="clave" type="password">
             </div>
-        </fieldset>
-        <input type="submit">
-    </form>
+            <fieldset class="elige-tipo">
+                <legend>Selecciona tu tipo de usuario:</legend>
+                <div class="tipo">
+                    <label for="alumno">Alumno</label>
+                    <input type="radio" name="tipo" id="alumno" value="alumno" checked>
+                </div>
+                <div class="tipo">
+                    <label for="profe">Profesor</label>
+                    <input type="radio" name="tipo" id="profe" value="profe">
+                </div>
+            </fieldset>
+            <input type="submit" value="Login">
+        </form>
+    </div>
 </body>
 
 </html>
