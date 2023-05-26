@@ -3,9 +3,9 @@ require_once 'bd.php';
 if (isset($_POST["correo"])) {
     $tipo = $_POST['tipo'];
     if ($tipo === "alumno") {
-        $usu = comprobar_alumno($_POST['correo'], $_POST['clave']);
+        $usu = crear_alumno($_POST['correo'], $_POST['clave'], $_POST['nombre'], $_POST['nivel']);
     } elseif ($tipo === "profe") {
-        $usu = comprobar_profesor($_POST['correo'], $_POST['clave']);
+        $usu = crear_profesor($_POST['correo'], $_POST['clave'], $_POST['nombre'], $_POST['nivel']);
     } {
     }
     if ($usu === false) {
@@ -51,6 +51,14 @@ if (isset($_POST["correo"])) {
                 <label for="clave">Clave</label>
                 <input id="clave" name="clave" type="password">
             </div>
+            <div class="campo">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" type="text">
+            </div>
+            <div class="campo">
+                <label for="nivel">Nivel</label>
+                <input id="nivel" name="nivel" type="text">
+            </div>
             <fieldset class="elige-tipo">
                 <legend>Selecciona tu tipo de usuario:</legend>
                 <div class="tipo">
@@ -62,9 +70,8 @@ if (isset($_POST["correo"])) {
                     <input type="radio" name="tipo" id="profe" value="profe">
                 </div>
             </fieldset>
-            <input type="submit" value="Login">
+            <input type="submit" value="Registrarse">
         </form>
-        <a href="registrar.php">Registrarse</a>
     </div>
 </body>
 
