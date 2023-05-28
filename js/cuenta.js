@@ -9,8 +9,17 @@ const compruebaMensajes = () => {
         .catch((error) => console.log(error));
 };
 
-const intervaloMensajes = () => {
+const abrirChat = () => {
+    
+}
+
+/* const intervaloMensajes = () => {
     setInterval(compruebaMensajes(), 5000);
 };
 
-intervaloMensajes();
+intervaloMensajes(); */
+
+const contactos = document.getElementsByClassName('contacto');
+for (const contacto of contactos) {
+    contacto.addEventListener('click', abrirChat);    
+}

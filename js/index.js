@@ -27,6 +27,7 @@ const crearTarjetas = () => {
 
     for (let i = 0; i < lista.length; i++) {
         console.log(lista[i]);
+        const id = lista[i].idProf;
         const tarjeta = document.createElement("div");
         tarjeta.classList.add("card", "tarjeta");
         const listaTexto = document.createElement("ul");
@@ -40,16 +41,42 @@ const crearTarjetas = () => {
         const desc = document.createElement("li");
         desc.classList.add("list-group-item", "desc-tarjeta");
         desc.textContent = lista[i].descProf;
+        const cardBody = document.createElement("div");
+        cardBody.classList.add("card-body");
+        const link = document.createElement("a");
+        link.classList.add("card-link");
+        link.setAttribute("onclick", `contactar(${id})`);
+        link.textContent = "Contactar";
 
+        cardBody.append(link);
         listaTexto.append(nombre);
         listaTexto.append(nivel);
         listaTexto.append(desc);
         tarjeta.append(listaTexto);
+        tarjeta.append(cardBody);
         contenedorTarjetas.append(tarjeta);
     }
 };
 
-const contactar = () => {}
+/* 
+<div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+</div> */
 
+const contactar = (id) => {
+    var formData = new FormData();
+    formData.append("id", id);
+    fetch("php/contactar.php", {
+        method: "POST",
+        body: formData,
+    })
+        .then((res) => res.json())
+        .then((res) => {
+            if(res === true){
+                window.location.href = "cuenta_alumno.php";
+            }
+        })
+        .catch((error) => console.log(error));
+};
 
 setTimeout(crearTarjetas, 100);

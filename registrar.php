@@ -6,7 +6,8 @@ if (isset($_POST["correo"])) {
         $usu = crear_alumno($_POST['correo'], $_POST['clave'], $_POST['nombre'], $_POST['nivel']);
     } elseif ($tipo === "profe") {
         $usu = crear_profesor($_POST['correo'], $_POST['clave'], $_POST['nombre'], $_POST['nivel']);
-    } {
+    } else {
+        $usu = false;
     }
     if ($usu === false) {
         $err = true;
@@ -16,9 +17,9 @@ if (isset($_POST["correo"])) {
         $_SESSION['correo'] = $usu['email'];
         $_SESSION['tipo'] = $tipo;
         if ($tipo === "alumno") {
-            header("Location: catalogo.html");
+            header("Location: index.php");
         } elseif ($tipo === "profe") {
-            header("Location: cuenta_profesor.php");
+            header("Location: index.php");
         }
         return;
     }
@@ -40,9 +41,9 @@ if (isset($_POST["correo"])) {
             echo "<p>Haga login para continuar</p>";
         } ?>
         <?php if (isset($err) and $err == true) {
-            echo "<p> Revise correo y contraseña</p>";
+            echo "<p> Ese correo esta registrado o ha ocurrido un problema</p>";
         } ?>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+        <form name="regForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
             <div class="campo">
                 <label for="correo">Correo</label>
                 <input value="<?php if (isset($correo)) echo $correo; ?>" id="correo" name="correo" type="text">
@@ -57,7 +58,15 @@ if (isset($_POST["correo"])) {
             </div>
             <div class="campo">
                 <label for="nivel">Nivel</label>
-                <input id="nivel" name="nivel" type="text">
+                <select name="nivel" id="nivel">
+                    <option selected value="todo">Cualquiera</option>
+                    <option value="uni">Universidad</option>
+                    <option value="gsup">Grado Superior</option>
+                    <option value="gmed">Grado Medio</option>
+                    <option value="bach">Bachillerato</option>
+                    <option value="eso">ESO</option>
+                    <option value="prim">Primaria</option>
+                </select>
             </div>
             <fieldset class="elige-tipo">
                 <legend>Selecciona tu tipo de usuario:</legend>
@@ -73,6 +82,7 @@ if (isset($_POST["correo"])) {
             <input type="submit" value="Registrarse">
         </form>
     </div>
+    <script src="js/registro.js"></script>
 </body>
 
 </html>

@@ -65,3 +65,28 @@ function crear_alumno($email, $clave, $nombre, $nivel)
 	}
 }
 
+function comprobar_admin($email, $clave)
+{
+	$bd = mysqli_connect("localhost", "root", "aFlopez.728", "barrionuevo");
+	$sql = "SELECT nombre, email FROM usuarios WHERE tipo='admin' AND email = '$email' 
+			AND passwd = '$clave'";
+	$resul = mysqli_query($bd, $sql);
+	if ($fila = mysqli_fetch_assoc($resul)) {
+		return $fila;
+	} else {
+		return FALSE;
+	}
+}
+
+function obtener_usuarios()
+{
+	$lista = array();
+	$bd = mysqli_connect("localhost", "root", "aFlopez.728", "barrionuevo");
+	$sql = "SELECT * FROM usuarios WHERE NOT tipo='admin' ORDER BY email";
+	$resul = mysqli_query($bd, $sql);
+	while ($fila = $resul->fetch_assoc()) {
+		$lista[] = $fila;
+	}
+
+	return $lista;
+}
