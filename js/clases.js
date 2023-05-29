@@ -19,13 +19,15 @@ class Profesor {
     _nombreProf;
     _nivelProf;
     _descProf;
+    _claveProf;
 
-    constructor(id, correo, nombre, nivel, desc) {
+    constructor(id, correo, nombre, nivel, desc, clave) {
         this._idProf = id;
         this._correoProf = correo;
         this._nombreProf = nombre;
         this._nivelProf = nivel;
         this._descProf = desc;
+        this._claveProf = clave;
     }
 
     get idProf() {
@@ -57,5 +59,12 @@ class Profesor {
     }
     set descProf(value) {
         this._descProf = value;
+    }
+
+    get claveProf() {
+        return this._claveProf;
+    }
+    set claveProf(value) {
+        this._claveProf = value;
     }
 }

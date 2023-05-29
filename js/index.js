@@ -1,5 +1,6 @@
 const catalogo = construyeCatalogo();
 const contenedorTarjetas = document.getElementsByClassName("tarjetas")[0];
+const correoAlumno = document.getElementById('correo-user').textContent;
 
 function construyeCatalogo() {
     const cat = new Catalogo();
@@ -12,7 +13,8 @@ function construyeCatalogo() {
                     profe.email,
                     profe.nombre,
                     profe.nivel,
-                    profe.descripcion
+                    profe.descripcion,
+                    profe.passwd
                 );
                 cat.addProfe(profesor);
             }
@@ -66,15 +68,17 @@ const crearTarjetas = () => {
 const contactar = (id) => {
     var formData = new FormData();
     formData.append("id", id);
+    formData.append("correo", correoAlumno);
     fetch("php/contactar.php", {
         method: "POST",
         body: formData,
     })
         .then((res) => res.json())
         .then((res) => {
-            if(res === true){
+            console.log(res);
+            /* if(res === true){
                 window.location.href = "cuenta_alumno.php";
-            }
+            } */
         })
         .catch((error) => console.log(error));
 };

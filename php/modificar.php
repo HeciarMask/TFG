@@ -6,14 +6,14 @@ $basedatos = "barrionuevo";
 
 
 $conn = mysqli_connect("localhost", "root", "aFlopez.728", "barrionuevo");
-$idDest = $_POST['id'];
-$correo = $_POST['correo'];
+extract($_POST);
 
 $sql1 = "SELECT id FROM usuarios WHERE email = '$correo'";
 $resul1 = mysqli_query($conn, $sql1);
 $usuario = $resul1->fetch_assoc();
+$id = $usuario['id'];
 
-$sql2 = "INSERT INTO chats (id_remitente, id_destinatario, msg) VALUES ('" . $usuario['id'] . "', '$idDest', '¿Contactamos?')";
+$sql2 = "UPDATE usuarios SET nombre='$nombre', descripcion='$desc', nivel='$nivel', passwd='$clave' WHERE id='$id'";
 $resul2 = mysqli_query($conn, $sql2);
 
 echo json_encode($resul2);

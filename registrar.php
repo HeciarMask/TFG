@@ -81,6 +81,7 @@ if (isset($_POST["correo"])) {
             </fieldset>
             <input type="submit" value="Registrarse">
         </form>
+        <a href="index.php">Iniciar Sesión</a>
     </div>
     <script src="js/registro.js"></script>
 </body>

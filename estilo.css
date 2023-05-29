@@ -76,6 +76,10 @@ body {
     align-self: center;
 }
 
+.tarjeta .card-link {
+    cursor: pointer;
+}
+
 .img-tarjeta img {
     position: absolute;
     height: 16rem;

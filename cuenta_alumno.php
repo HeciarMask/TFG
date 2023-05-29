@@ -26,7 +26,7 @@ comprobar_sesion();
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="catalogo.html">Encontrar profesor</a>
+                            <a class="nav-link active" aria-current="page" href="catalogo.php">Encontrar profesor</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cuenta_profesor.php">Cuenta</a>
@@ -58,15 +58,11 @@ comprobar_sesion();
                     <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                         <h2>Perfil</h2>
                         <div class="contacto-form">
-                            <form action="" name="perfilProfesor">
+                            <form action="" name="perfilForm">
                                 <ul>
                                     <li>
                                         <label for="id-nombre">Nombre:</label>
                                         <input type="text" name="nombre" id="id-nombre" />
-                                    </li>
-                                    <li>
-                                        <label for="id-img">Foto de perfil:</label>
-                                        <input type="file" name="imagen" id="id-img" />
                                     </li>
                                     <li>
                                         <label for="id-desc">Descripción:</label>
@@ -83,14 +79,11 @@ comprobar_sesion();
                                         </select>
                                     </li>
                                     <li>
-                                        <label for="id-email">Cambiar correo electrónico:</label>
-                                        <input type="email" name="email" id="id-email" />
-                                    </li>
-                                    <li>
                                         <label for="id-passwd">Cambiar contraseña:</label>
                                         <input type="password" name="passwd" id="id-passwd" />
                                     </li>
                                 </ul>
+                                <input type="submit" value="Modificar">
                             </form>
                         </div>
                     </div>
@@ -131,6 +124,7 @@ comprobar_sesion();
     </main>
     <footer></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="js/clases.js"></script>
     <script src="js/cuenta.js"></script>
 </body>
 

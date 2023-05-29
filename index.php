@@ -16,7 +16,7 @@ if (isset($_POST["correo"])) {
         $_SESSION['correo'] = $usu['email'];
         $_SESSION['tipo'] = $tipo;
         if ($tipo === "alumno") {
-            header("Location: catalogo.html");
+            header("Location: catalogo.php");
         } elseif ($tipo === "profe") {
             header("Location: cuenta_profesor.php");
         }
