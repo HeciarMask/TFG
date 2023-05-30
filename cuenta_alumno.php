@@ -2,6 +2,8 @@
 require 'php/sesiones.php';
 require_once 'bd.php';
 comprobar_sesion();
+$contactos = obtener_contactos($_SESSION['correo']);
+$mensajes = obtener_mensajes($_SESSION['correo']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -32,7 +34,7 @@ comprobar_sesion();
                             <a class="nav-link" href="cuenta_profesor.php">Cuenta</a>
                         </li>
                         <li class="nav-item">
-                            <div id="correo-user"><?php echo $_SESSION['correo'] ?></div>
+                            <a class='nav-link' id="correo-user" disabled><?php echo $_SESSION['correo'] ?></a>
                         </li>
                     </ul>
                 </div>
@@ -92,7 +94,11 @@ comprobar_sesion();
                             <div class="row lista-contactos">
                                 <div class="row lista-header">Lista</div>
                                 <div class="row lista-body">
-                                    <div class="col-12 contacto selected">Raul</div>
+                                    <?php
+                                    foreach ($contactos as $contacto) {
+                                        echo "<div id='" . $contacto['id'] . "' class='col-12 contacto'>" . $contacto['nombre'] . "</div>";
+                                    }
+                                    ?>
                                 </div>
                             </div>
                             <div class="row chat-box">

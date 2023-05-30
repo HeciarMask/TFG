@@ -1,4 +1,5 @@
 const correoUser = document.getElementById("correo-user").textContent;
+let seleccionado;
 
 const modificarCuenta = (event) => {
     event.preventDefault();
@@ -35,7 +36,7 @@ const agregaInfo = (profesor) => {
 const pideInfo = () => {
     var formData = new FormData();
     formData.append("correo", correoUser);
-    +fetch("php/profesor.php", {
+    fetch("php/profesor.php", {
         method: "POST",
         body: formData,
     })
@@ -56,6 +57,10 @@ const pideInfo = () => {
 };
 
 const contactos = document.getElementsByClassName("contacto");
+if(contactos !== null){
+    contactos[0].classList.add('selected');
+}
+
 for (const contacto of contactos) {
     contacto.addEventListener("click", abrirChat);
 }

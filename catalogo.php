@@ -32,7 +32,7 @@ comprobar_sesion();
                             <a class="nav-link" href="cuenta_alumno.php">Cuenta</a>
                         </li>
                         <li class="nav-item">
-                            <div id="correo-user"><?php echo $_SESSION['correo'] ?></div>
+                            <a class='nav-link' id="correo-user" disabled><?php echo $_SESSION['correo'] ?></a>
                         </li>
                     </ul>
                 </div>
