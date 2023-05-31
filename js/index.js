@@ -7,6 +7,7 @@ function construyeCatalogo() {
     fetch("php/profesores.php")
         .then((res) => res.json())
         .then((res) => {
+            console.log(res);
             for (const profe of res) {
                 const profesor = new Profesor(
                     profe.id,

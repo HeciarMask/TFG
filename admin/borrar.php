@@ -1,5 +1,5 @@
 <?php
-require_once 'datos.php';
+require_once '../datos.php';
 
 if (!isset($_POST)) {
     return False;
