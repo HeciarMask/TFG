@@ -1,5 +1,5 @@
 <?php
-$servername = "http://35.170.24.161";
+require_once 'datos.php';
 
 $conn = mysqli_connect($servername, "root", "aFlopez.728", "barrionuevo");
 extract($_POST);

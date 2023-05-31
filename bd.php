@@ -1,6 +1,6 @@
 <?php
+require_once 'datos.php';
 
-$servername = "http://35.170.24.161";
 $username = "root";
 $password = "aFlopez.728"; // Contraseña: aFlopez.728
 $basedatos = "barrionuevo";
@@ -9,6 +9,7 @@ $conn = mysqli_connect($servername, "root", "aFlopez.728", "barrionuevo");
 
 function comprobar_profesor($email, $clave)
 {
+	global $servername;
 	$bd = mysqli_connect($servername, "root", "aFlopez.728", "barrionuevo");
 	$sql = "SELECT nombre, email FROM usuarios WHERE tipo='profe' AND email = '$email' 
 			AND passwd = '$clave'";
@@ -22,6 +23,7 @@ function comprobar_profesor($email, $clave)
 
 function crear_profesor($email, $clave, $nombre, $nivel)
 {
+	global $servername;
 	$bd = mysqli_connect($servername, "root", "aFlopez.728", "barrionuevo");
 	$sql1 = "SELECT * FROM usuarios WHERE email = '$email'";
 	$resul1 = mysqli_query($bd, $sql1);
@@ -38,6 +40,7 @@ function crear_profesor($email, $clave, $nombre, $nivel)
 
 function comprobar_alumno($email, $clave)
 {
+	global $servername;
 	$bd = mysqli_connect($servername, "root", "aFlopez.728", "barrionuevo");
 	$sql = "SELECT nombre, email FROM usuarios WHERE tipo='alumno' AND email = '$email' 
 			AND passwd = '$clave'";
@@ -51,6 +54,7 @@ function comprobar_alumno($email, $clave)
 
 function crear_alumno($email, $clave, $nombre, $nivel)
 {
+	global $servername;
 	$bd = mysqli_connect($servername, "root", "aFlopez.728", "barrionuevo");
 	$sql1 = "SELECT * FROM usuarios WHERE email = '$email'";
 	$resul1 = mysqli_query($bd, $sql1);
@@ -67,6 +71,7 @@ function crear_alumno($email, $clave, $nombre, $nivel)
 
 function comprobar_admin($email, $clave)
 {
+	global $servername;
 	$bd = mysqli_connect($servername, "root", "aFlopez.728", "barrionuevo");
 	$sql = "SELECT nombre, email FROM usuarios WHERE tipo='admin' AND email = '$email' 
 			AND passwd = '$clave'";
@@ -80,6 +85,7 @@ function comprobar_admin($email, $clave)
 
 function obtener_usuarios()
 {
+	global $servername;
 	$lista = array();
 	$bd = mysqli_connect($servername, "root", "aFlopez.728", "barrionuevo");
 	$sql = "SELECT * FROM usuarios WHERE NOT tipo='admin' ORDER BY email";
@@ -93,6 +99,7 @@ function obtener_usuarios()
 
 function obtener_contactos($email)
 {
+	global $servername;
 	$conn = mysqli_connect($servername, "root", "aFlopez.728", "barrionuevo");
 	extract($_POST);
 

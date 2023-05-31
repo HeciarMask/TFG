@@ -1,5 +1,6 @@
 <?php
-$servername = "http://35.170.24.161";
+require_once 'datos.php';
+
 $username = "root";
 $password = "aFlopez.728"; // Contraseña: aFlopez.728
 $basedatos = "barrionuevo";

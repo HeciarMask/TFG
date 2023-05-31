@@ -1,9 +1,10 @@
 <?php
+require_once 'datos.php';
+
 if (!isset($_POST)) {
     return False;
 }
 
-$servername = "http://35.170.24.161";
 $username = "root";
 $password = "aFlopez.728"; // Contraseña: aFlopez.728
 $basedatos = "barrionuevo";
