@@ -7,7 +7,7 @@ $basedatos = "barrionuevo";
 
 $conn = mysqli_connect($servername, "root", "aFlopez.728", "barrionuevo");
 
-$sql = mysqli_query($conn, "SELECT * FROM usuarios WHERE tipo='profe'");
-$result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
+$sql = "SELECT * FROM usuarios WHERE tipo='profe'";
+$resul = mysqli_query($conn, $sql);
 
-echo json_encode($result);
+echo json_encode($resul);
