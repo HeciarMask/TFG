@@ -10,7 +10,7 @@ $profesores = array();
 
 $sql = "SELECT * FROM usuarios WHERE tipo='profe'";
 $resul = mysqli_query($conn, $sql);
-while($fila = $resul->fetch_assoc()){
+while($fila = mysqli_fetch_assoc($resul)){
     $profesores[] = $fila;
 }
 
