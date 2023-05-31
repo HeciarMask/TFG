@@ -1,5 +1,9 @@
 const correoUser = document.getElementById("correo-user").textContent;
-let seleccionado;
+let seleccionado = null;
+let idSel = null;
+const chat = document.getElementsByClassName("chat-mensajes")[0];
+const inputText = document.getElementById("input-texto");
+const inputBtn = document.getElementById("input-button");
 
 const modificarCuenta = (event) => {
     event.preventDefault();
@@ -7,7 +11,7 @@ const modificarCuenta = (event) => {
     const desc = perfilForm.desc.value;
     const nivel = perfilForm.nivel.value;
     const clave = perfilForm.passwd.value;
-    var formData = new FormData();
+    const formData = new FormData();
     formData.append("correo", correoUser);
     formData.append("nombre", nombre);
     formData.append("desc", desc);
@@ -24,7 +28,79 @@ const modificarCuenta = (event) => {
         .catch((error) => console.log(error));
 };
 
-const abrirChat = (event) => {};
+const montarMensajes = (contacts) => {
+    console.log(idSel);
+    for (const key of Object.keys(contacts)) {
+        if (key == idSel) {
+            for (const msg of Object.values(contacts[key])) {
+                if (msg.saliente !== undefined) {
+                    const rowMsg = document.createElement("div");
+                    const salMsg = document.createElement("div");
+                    rowMsg.classList.add("row", "mensaje");
+                    salMsg.classList.add("mensaje-saliente");
+                    console.log(msg.saliente);
+                    salMsg.textContent = msg.saliente;
+                    rowMsg.append(salMsg);
+                    chat.prepend(rowMsg);
+                } else {
+                    const rowMsg = document.createElement("div");
+                    const entMsg = document.createElement("div");
+                    rowMsg.classList.add("row", "mensaje");
+                    entMsg.classList.add("mensaje-entrante");
+                    entMsg.textContent = msg.entrante;
+                    rowMsg.append(entMsg);
+                    chat.prepend(rowMsg);
+                }
+            }
+        }
+    }
+};
+
+const abrirChat = (event) => {
+    chat.innerHTML = "";
+    seleccionado.classList.remove("selected");
+    seleccionado = event.currentTarget;
+    seleccionado.classList.add("selected");
+    idSel = seleccionado.id;
+    const formData = new FormData();
+    formData.append("email", correoUser);
+    fetch("php/mensajes.php", {
+        method: "POST",
+        body: formData,
+    })
+        .then((res) => res.json())
+        .then((res) => {
+            console.log(res);
+            setTimeout(montarMensajes(res), 200);
+        })
+        .catch((error) => console.log(error));
+};
+
+const enviarMsg = () => {
+    if (inputText.value !== "") {
+        const rowMsg = document.createElement("div");
+        const salMsg = document.createElement("div");
+        rowMsg.classList.add("row", "mensaje");
+        salMsg.classList.add("mensaje-saliente");
+        console.log(inputText.value);
+        salMsg.textContent = inputText.value;
+        rowMsg.append(salMsg);
+        chat.prepend(rowMsg);
+        const formData = new FormData();
+        formData.append("email", correoUser);
+        formData.append("id", idSel);
+        formData.append("msg", inputText.value);
+        fetch("php/enviarMensaje.php", {
+            method: "POST",
+            body: formData,
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((error) => console.log(error));
+    }
+};
 
 const agregaInfo = (profesor) => {
     perfilForm.nombre.value = profesor.nombreProf;
@@ -50,20 +126,25 @@ const pideInfo = () => {
                 res.descripcion,
                 res.passwd
             );
-            console.log(profesor);
             setInterval(agregaInfo(profesor), 300);
         })
         .catch((error) => console.log(error));
 };
 
 const contactos = document.getElementsByClassName("contacto");
-if(contactos !== null){
-    contactos[0].classList.add('selected');
-}
 
 for (const contacto of contactos) {
     contacto.addEventListener("click", abrirChat);
 }
+
+if (contactos !== null) {
+    seleccionado = contactos[0];
+    seleccionado.classList.add("selected");
+    idSel = seleccionado.id;
+    seleccionado.click();
+}
+
 document.addEventListener("submit", modificarCuenta);
+inputBtn.addEventListener("click", enviarMsg);
 
 pideInfo();

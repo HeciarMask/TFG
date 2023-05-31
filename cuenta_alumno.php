@@ -3,7 +3,6 @@ require 'php/sesiones.php';
 require_once 'bd.php';
 comprobar_sesion();
 $contactos = obtener_contactos($_SESSION['correo']);
-$mensajes = obtener_mensajes($_SESSION['correo']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -31,7 +30,7 @@ $mensajes = obtener_mensajes($_SESSION['correo']);
                             <a class="nav-link active" aria-current="page" href="catalogo.php">Encontrar profesor</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cuenta_profesor.php">Cuenta</a>
+                            <a class="nav-link" href="cuenta_alumno.php">Cuenta</a>
                         </li>
                         <li class="nav-item">
                             <a class='nav-link' id="correo-user" disabled><?php echo $_SESSION['correo'] ?></a>
@@ -95,8 +94,12 @@ $mensajes = obtener_mensajes($_SESSION['correo']);
                                 <div class="row lista-header">Lista</div>
                                 <div class="row lista-body">
                                     <?php
+                                    $list = array();
                                     foreach ($contactos as $contacto) {
-                                        echo "<div id='" . $contacto['id'] . "' class='col-12 contacto'>" . $contacto['nombre'] . "</div>";
+                                        if (!in_array($contacto['id'], $list)) {
+                                            echo "<div id='" . $contacto['id'] . "' class='col-12 contacto'>" . $contacto['nombre'] . "</div>";
+                                            $list[] = $contacto['id'];
+                                        }
                                     }
                                     ?>
                                 </div>
@@ -105,16 +108,6 @@ $mensajes = obtener_mensajes($_SESSION['correo']);
                                 <div class="row chat-header">Contacto</div>
                                 <div class="row chat-body">
                                     <div class="col-12 row chat-mensajes">
-                                        <div class="row mensaje">
-                                            <div class="mensaje-entrante">
-                                                Claro puedo a partir de las 6
-                                            </div>
-                                        </div>
-                                        <div class="row mensaje">
-                                            <div class="mensaje-saliente">
-                                                Te importa si tenemos clase esta tarde?
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="col-12 chat-input row">
                                         <input type="text" name="texto" id="input-texto" placeholder="Escribe aqui ..." />

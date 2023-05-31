@@ -60,11 +60,6 @@ const crearTarjetas = () => {
     }
 };
 
-/* 
-<div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-</div> */
-
 const contactar = (id) => {
     var formData = new FormData();
     formData.append("id", id);

@@ -2,6 +2,7 @@
 require 'php/sesiones.php';
 require_once 'bd.php';
 comprobar_sesion();
+$contactos = obtener_contactos($_SESSION['correo']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -29,7 +30,7 @@ comprobar_sesion();
                             <a class="nav-link" href="cuenta_profesor.php">Cuenta</a>
                         </li>
                         <li class="nav-item">
-                            <div id="correo-user"><?php echo $_SESSION['correo'] ?></div>
+                            <a class='nav-link' id="correo-user" disabled><?php echo $_SESSION['correo'] ?></a>
                         </li>
                     </ul>
                 </div>
@@ -55,15 +56,11 @@ comprobar_sesion();
                     <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                         <h2>Perfil</h2>
                         <div class="contacto-form">
-                            <form action="" name="perfilProfesor">
+                            <form action="" name="perfilForm">
                                 <ul>
                                     <li>
                                         <label for="id-nombre">Nombre:</label>
                                         <input type="text" name="nombre" id="id-nombre" />
-                                    </li>
-                                    <li>
-                                        <label for="id-img">Foto de perfil:</label>
-                                        <input type="file" name="imagen" id="id-img" />
                                     </li>
                                     <li>
                                         <label for="id-desc">Descripción:</label>
@@ -80,53 +77,34 @@ comprobar_sesion();
                                         </select>
                                     </li>
                                     <li>
-                                        <label for="id-email">Cambiar correo electrónico:</label>
-                                        <input type="email" name="email" id="id-email" />
-                                    </li>
-                                    <li>
                                         <label for="id-passwd">Cambiar contraseña:</label>
                                         <input type="password" name="passwd" id="id-passwd" />
                                     </li>
                                 </ul>
+                                <input type="submit" value="Modificar">
                             </form>
                         </div>
                     </div>
                     <div class="tab-pane fade show active contactos-tab" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
                         <div class="contactos">
                             <div class="row lista-contactos">
-                                <div class="row lista-header">Lista de contactos</div>
+                                <div class="row lista-header">Lista</div>
                                 <div class="row lista-body">
-                                    <div class="col-12 contacto selected">Raul</div>
-                                    <div class="col-12 contacto">María</div>
-                                    <div class="col-12 contacto">Carmen</div>
-                                    <div class="col-12 contacto">Carmen</div>
-                                    <div class="col-12 contacto">Carmen</div>
-                                    <div class="col-12 contacto">Carmen</div>
-                                    <div class="col-12 contacto">Carmen</div>
-                                    <div class="col-12 contacto">Carmen</div>
-                                    <div class="col-12 contacto">Carmen</div>
-                                    <div class="col-12 contacto">Carmen</div>
-                                    <div class="col-12 contacto">Carmen</div>
-                                    <div class="col-12 contacto">Carmen</div>
-                                    <div class="col-12 contacto">Carmen</div>
-                                    <div class="col-12 contacto">Carmen</div>
-                                    <div class="col-12 contacto">Carmen</div>
+                                    <?php
+                                    $list = array();
+                                    foreach ($contactos as $contacto) {
+                                        if (!in_array($contacto['id'], $list)) {
+                                            echo "<div id='" . $contacto['id'] . "' class='col-12 contacto'>" . $contacto['nombre'] . "</div>";
+                                            $list[] = $contacto['id'];
+                                        }
+                                    }
+                                    ?>
                                 </div>
                             </div>
                             <div class="row chat-box">
                                 <div class="row chat-header">Contacto</div>
                                 <div class="row chat-body">
                                     <div class="col-12 row chat-mensajes">
-                                        <div class="row mensaje">
-                                            <div class="mensaje-entrante">
-                                                Claro puedo a partir de las 6
-                                            </div>
-                                        </div>
-                                        <div class="row mensaje">
-                                            <div class="mensaje-saliente">
-                                                Te importa si tenemos clase esta tarde?
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="col-12 chat-input row">
                                         <input type="text" name="texto" id="input-texto" placeholder="Escribe aqui ..." />
@@ -142,6 +120,7 @@ comprobar_sesion();
     </main>
     <footer></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="js/clases.js"></script>
     <script src="js/cuenta.js"></script>
 </body>
 
