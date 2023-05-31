@@ -1,5 +1,5 @@
 <?php
-$servername = "localhost";
+$servername = "http://35.170.24.161";
 $username = "root";
 $password = "aFlopez.728"; // Contraseña: aFlopez.728
 $basedatos = "barrionuevo";
@@ -7,7 +7,7 @@ $basedatos = "barrionuevo";
 session_start();
 $correo = $_SESSION['correo'];
 
-$conn = mysqli_connect("localhost", "root", "aFlopez.728", "barrionuevo");
+$conn = mysqli_connect($servername, "root", "aFlopez.728", "barrionuevo");
 
 $sql1 = "SELECT id FROM usuarios WHERE email='$correo'";
 

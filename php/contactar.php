@@ -1,11 +1,11 @@
 <?php
-$servername = "localhost";
+$servername = "http://35.170.24.161";
 $username = "root";
 $password = "aFlopez.728"; // Contraseña: aFlopez.728
 $basedatos = "barrionuevo";
 
 
-$conn = mysqli_connect("localhost", "root", "aFlopez.728", "barrionuevo");
+$conn = mysqli_connect($servername, "root", "aFlopez.728", "barrionuevo");
 $idDest = $_POST['id'];
 $correo = $_POST['correo'];
 

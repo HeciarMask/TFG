@@ -1,5 +1,7 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "aFlopez.728", "barrionuevo");
+$servername = "http://35.170.24.161";
+
+$conn = mysqli_connect($servername, "root", "aFlopez.728", "barrionuevo");
 extract($_POST);
 
 $sql1 = "SELECT id FROM usuarios WHERE email = '$email'";
