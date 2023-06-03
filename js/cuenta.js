@@ -65,13 +65,13 @@ const abrirChat = (event) => {
     const formData = new FormData();
     formData.append("email", correoUser);
     fetch("mensajes.php", {
-        method: "GET",
+        method: "POST",
         body: formData,
     })
         .then((res) => res.json())
         .then((res) => {
             console.log(res);
-            setTimeout(montarMensajes(res), 500);
+            montarMensajes(res);
         })
         .catch((error) => console.log(error));
 };

@@ -2,7 +2,7 @@
 require_once 'datos.php';
 
 $conn = mysqli_connect($servername, "root", "aFlopez.728", "barrionuevo");
-extract($_GET);
+extract($_POST);
 
 $sql1 = "SELECT id FROM usuarios WHERE email = '$email'";
 $resul1 = mysqli_query($conn, $sql1);
