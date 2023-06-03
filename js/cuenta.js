@@ -65,7 +65,7 @@ const abrirChat = (event) => {
     const formData = new FormData();
     formData.append("email", correoUser);
     fetch("mensajes.php", {
-        method: "POST",
+        method: "GET",
         body: formData,
     })
         .then((res) => res.json())
