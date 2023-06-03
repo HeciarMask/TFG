@@ -1,5 +1,5 @@
 <?php
-require 'php/sesiones.php';
+require 'sesiones.php';
 require_once 'bd.php';
 comprobar_sesion();
 $contactos = obtener_contactos($_SESSION['correo']);

@@ -17,7 +17,7 @@ const modificarCuenta = (event) => {
     formData.append("desc", desc);
     formData.append("nivel", nivel);
     formData.append("clave", clave);
-    fetch("php/modificar.php", {
+    fetch("modificar.php", {
         method: "POST",
         body: formData,
     })
@@ -64,7 +64,7 @@ const abrirChat = (event) => {
     idSel = seleccionado.id;
     const formData = new FormData();
     formData.append("email", correoUser);
-    fetch("php/mensajes.php", {
+    fetch("mensajes.php", {
         method: "POST",
         body: formData,
     })
@@ -90,7 +90,7 @@ const enviarMsg = () => {
         formData.append("email", correoUser);
         formData.append("id", idSel);
         formData.append("msg", inputText.value);
-        fetch("php/enviarMensaje.php", {
+        fetch("enviarMensaje.php", {
             method: "POST",
             body: formData,
         })
@@ -112,7 +112,7 @@ const agregaInfo = (profesor) => {
 const pideInfo = () => {
     var formData = new FormData();
     formData.append("correo", correoUser);
-    fetch("php/profesor.php", {
+    fetch("profesor.php", {
         method: "POST",
         body: formData,
     })

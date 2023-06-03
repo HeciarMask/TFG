@@ -4,7 +4,7 @@ const correoAlumno = document.getElementById('correo-user').textContent;
 
 function construyeCatalogo() {
     const cat = new Catalogo();
-    fetch("php/profesores.php")
+    fetch("profesores.php")
         .then((res) => res.json())
         .then((res) => {
             console.log(res);
@@ -65,7 +65,7 @@ const contactar = (id) => {
     var formData = new FormData();
     formData.append("id", id);
     formData.append("correo", correoAlumno);
-    fetch("php/contactar.php", {
+    fetch("contactar.php", {
         method: "POST",
         body: formData,
     })
