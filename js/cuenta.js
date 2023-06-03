@@ -71,7 +71,7 @@ const abrirChat = (event) => {
         .then((res) => res.json())
         .then((res) => {
             console.log(res);
-            setTimeout(montarMensajes(res), 300);
+            setTimeout(montarMensajes(res), 500);
         })
         .catch((error) => console.log(error));
 };
@@ -126,7 +126,7 @@ const pideInfo = () => {
                 res.descripcion,
                 res.passwd
             );
-            setInterval(agregaInfo(profesor), 300);
+            setInterval(agregaInfo(profesor), 500);
         })
         .catch((error) => console.log(error));
 };
