@@ -71,7 +71,7 @@ const abrirChat = (event) => {
         .then((res) => res.json())
         .then((res) => {
             console.log(res);
-            montarMensajes(res);
+            setTimeout(montarMensajes(res), 500);
         })
         .catch((error) => console.log(error));
 };
