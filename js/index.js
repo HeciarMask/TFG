@@ -79,4 +79,4 @@ const contactar = (id) => {
         .catch((error) => console.log(error));
 };
 
-setTimeout(crearTarjetas, 100);
+setTimeout(crearTarjetas, 300);
