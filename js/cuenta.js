@@ -131,6 +131,22 @@ const pideInfo = () => {
         .catch((error) => console.log(error));
 };
 
+const borrarCuenta = () => {
+    var formData = new FormData();
+    formData.append("correo", correoUser);
+    fetch("borrarCuenta.php", {
+        method: "POST",
+        body: formData,
+    })
+        .then((res) => res.json())
+        .then((res) => {
+            if(res === true){
+                location.reload();
+            }
+        })
+        .catch((error) => console.log(error));
+};
+
 const contactos = document.getElementsByClassName("contacto");
 
 for (const contacto of contactos) {
@@ -143,7 +159,6 @@ if (contactos !== null) {
     idSel = seleccionado.id;
     seleccionado.click();
 }
-
 document.addEventListener("submit", modificarCuenta);
 inputBtn.addEventListener("click", enviarMsg);
 

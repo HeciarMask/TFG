@@ -34,6 +34,9 @@ comprobar_sesion();
                         <li class="nav-item">
                             <a class='nav-link' id="correo-user" disabled><?php echo $_SESSION['correo'] ?></a>
                         </li>
+                        <li class="nav-item">
+                            <a href="index.php" class="nav-link" id="cerrar">Cerrar Sesión</a>
+                        </li>
                     </ul>
                 </div>
             </div>

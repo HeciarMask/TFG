@@ -126,3 +126,16 @@ function obtener_contactos($email)
 
 	return $contactos;
 }
+
+
+function comprobar_usuario($email) {
+	global $servername;
+	$bd = mysqli_connect($servername, "root", "aFlopez.728", "barrionuevo");
+	$sql = "SELECT * FROM usuarios WHERE email = '$email'";
+	$resul = mysqli_query($bd, $sql);
+	if ($fila = mysqli_fetch_assoc($resul)) {
+		return TRUE;
+	} else {
+		return FALSE;
+	}
+}

@@ -3,6 +3,9 @@ require 'sesiones.php';
 require_once 'bd.php';
 comprobar_sesion();
 $contactos = obtener_contactos($_SESSION['correo']);
+if (!comprobar_usuario($_SESSION['correo'])) {
+    header("Location: index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -34,6 +37,9 @@ $contactos = obtener_contactos($_SESSION['correo']);
                         </li>
                         <li class="nav-item">
                             <a class='nav-link' id="correo-user" disabled><?php echo $_SESSION['correo'] ?></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.php" class="nav-link" id="cerrar">Cerrar Sesión</a>
                         </li>
                     </ul>
                 </div>
@@ -85,6 +91,7 @@ $contactos = obtener_contactos($_SESSION['correo']);
                                     </li>
                                 </ul>
                                 <input type="submit" value="Modificar">
+                                <input type='button' value='Borrar' onclick='borrarCuenta()'>
                             </form>
                         </div>
                     </div>

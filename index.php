@@ -1,4 +1,6 @@
 <?php
+session_start();
+session_destroy();
 require_once 'bd.php';
 if (isset($_POST["correo"])) {
     $tipo = $_POST['tipo'];

@@ -20,6 +20,7 @@ $usuarios = obtener_usuarios();
 </head>
 
 <body>
+    <a href="../index.php" id="cerrar">Cerrar Sesión</a>
     <div class="lista">
         <table>
             <tr>
@@ -33,9 +34,9 @@ $usuarios = obtener_usuarios();
                 $id = $usuario['id'];
                 echo "
                 <tr>
-                    <td>".$usuario['email']."</td>
-                    <td>".$usuario['nombre']."</td>
-                    <td>".$usuario['tipo']."</td>
+                    <td>" . $usuario['email'] . "</td>
+                    <td>" . $usuario['nombre'] . "</td>
+                    <td>" . $usuario['tipo'] . "</td>
                     <td><input type='button' value='Borrar' onclick='borrarUsuario($id)'></td>
                 </tr>";
             }
