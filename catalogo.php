@@ -52,9 +52,10 @@ comprobar_sesion();
                         </div>
                         <div class="filtro-value">
                             <select name="nivel" id="id_nivel">
-                                <option value="todo">Cualquiera</option>
+                                <option value="todo" selected>Cualquiera</option>
                                 <option value="uni">Universidad</option>
-                                <option value="grad">Grados</option>
+                                <option value="gmed">Grado Medio</option>
+                                <option value="gsup">Grado Superior</option>
                                 <option value="bach">Bachillerato</option>
                                 <option value="eso">ESO</option>
                                 <option value="prim">Primaria</option>

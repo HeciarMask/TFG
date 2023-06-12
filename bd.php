@@ -35,6 +35,7 @@ function crear_profesor($email, $clave, $nombre, $nivel)
 		if (!$result2) {
 			return FALSE;
 		}
+		return comprobar_profesor($email, $clave);
 	}
 }
 
@@ -66,6 +67,7 @@ function crear_alumno($email, $clave, $nombre, $nivel)
 		if (!$result2) {
 			return FALSE;
 		}
+		return comprobar_alumno($email, $clave);
 	}
 }
 

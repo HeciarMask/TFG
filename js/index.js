@@ -1,6 +1,7 @@
 const catalogo = construyeCatalogo();
 const contenedorTarjetas = document.getElementsByClassName("tarjetas")[0];
-const correoAlumno = document.getElementById('correo-user').textContent;
+const correoAlumno = document.getElementById("correo-user").textContent;
+const nivelSel = document.getElementById('id_nivel');
 
 function construyeCatalogo() {
     const cat = new Catalogo();
@@ -29,6 +30,9 @@ const crearTarjetas = () => {
     let lista = catalogo.listaProfesores;
 
     for (let i = 0; i < lista.length; i++) {
+        if (nivelSel.value != lista[i].nivelProf && nivelSel != 'todo') {
+            continue;
+        }
         console.log(lista[i]);
         const id = lista[i].idProf;
         const tarjeta = document.createElement("div");
@@ -40,7 +44,31 @@ const crearTarjetas = () => {
         nombre.textContent = lista[i].nombreProf;
         const nivel = document.createElement("li");
         nivel.classList.add("list-group-item", "nivel-tarjeta");
-        nivel.textContent = lista[i].nivelProf;
+        const nivelValue = lista[i].nivelProf;
+        switch (nivelValue) {
+            case "uni":
+                nivel.textContent = "Universidad";
+                break;
+            case "gsup":
+                nivel.textContent = "Grado Superior";
+                break;
+            case "gmed":
+                nivel.textContent = "Grado Medio";
+                break;
+            case "bach":
+                nivel.textContent = "Bachillerato";
+                break;
+            case "eso":
+                nivel.textContent = "ESO";
+                break;
+            case "prim":
+                nivel.textContent = "Primaria";
+                break;
+            default:
+                nivel.textContent = "Cualquiera";
+                break;
+        }
+
         const desc = document.createElement("li");
         desc.classList.add("list-group-item", "desc-tarjeta");
         desc.textContent = lista[i].descProf;
@@ -80,3 +108,4 @@ const contactar = (id) => {
 };
 
 setTimeout(crearTarjetas, 500);
+nivelSel.addEventListener('change', crearTarjetas);

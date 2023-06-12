@@ -7,21 +7,15 @@ if (isset($_POST["correo"])) {
     } elseif ($tipo === "profe") {
         $usu = crear_profesor($_POST['correo'], $_POST['clave'], $_POST['nombre'], $_POST['nivel']);
     } else {
-        $usu = false;
-    }
-    if ($usu === false) {
-        $err = true;
+        $usu = FALSE;
+        $err = TRUE;
         $correo = $_POST['correo'];
-    } else {
-        session_start();
+    }
+    session_start();
+    if ($usu == TRUE) {
         $_SESSION['correo'] = $usu['email'];
         $_SESSION['tipo'] = $tipo;
-        if ($tipo === "alumno") {
-            header("Location: index.php");
-        } elseif ($tipo === "profe") {
-            header("Location: index.php");
-        }
-        return;
+        header("Location: index.php");
     }
 }
 ?>
@@ -43,7 +37,7 @@ if (isset($_POST["correo"])) {
         <?php if (isset($err) and $err == true) {
             echo "<p> Ese correo esta registrado o ha ocurrido un problema</p>";
         } ?>
-        <form name="regForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+        <form name="regForm" id="regForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
             <div class="campo">
                 <label for="correo">Correo</label>
                 <input value="<?php if (isset($correo)) echo $correo; ?>" id="correo" name="correo" type="text">
@@ -79,7 +73,7 @@ if (isset($_POST["correo"])) {
                     <input type="radio" name="tipo" id="profe" value="profe">
                 </div>
             </fieldset>
-            <input type="submit" value="Registrarse">
+            <input type="button" id="submitReg" value="Registrarse">
         </form>
         <a href="index.php">Iniciar Sesión</a>
     </div>
