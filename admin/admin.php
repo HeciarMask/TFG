@@ -17,10 +17,10 @@ $usuarios = obtener_usuarios();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
+    <link rel="stylesheet" href="admin.css" />
 </head>
 
 <body>
-    <a href="../index.php" id="cerrar">Cerrar Sesión</a>
     <div class="lista">
         <table>
             <tr>
@@ -42,6 +42,9 @@ $usuarios = obtener_usuarios();
             }
             ?>
         </table>
+        <div id="cerrar">
+            <a href="../index.php">Cerrar Sesión</a>
+        </div>
     </div>
     <script src="admin.js"></script>
 </body>

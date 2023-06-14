@@ -1,0 +1,25 @@
+.lista {
+    background-color: #74d8b7;
+    padding: 1rem;
+    color: black;
+    border-radius: 1rem;
+}
+
+.lista tr:first-child td {
+    font-size: large;
+    padding-bottom: 1rem;
+}
+
+.lista tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.lista td {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+#cerrar {
+    padding: 1rem;
+    margin-top: 1rem;
+}

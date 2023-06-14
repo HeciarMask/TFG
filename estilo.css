@@ -1,8 +1,9 @@
 body {
     height: 92vh;
+    background: linear-gradient(#645E9D, #392B58);
 }
 
-.container-fluid .navbar-titulo{
+.container-fluid .navbar-titulo {
     margin-left: auto;
 }
 
@@ -10,14 +11,14 @@ body {
     margin: auto;
 }
 
-.contenido{
+.contenido {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .filtros {
-    background-color: rgb(255, 88, 88);
+    background-color: #077a54;
     border-radius: 1rem;
     margin-bottom: 1rem;
     padding: 0.5rem;
@@ -32,7 +33,7 @@ body {
 
 .filtros .filtro {
     padding: 0.5rem;
-    background-color: rgb(0, 255, 76);
+    background-color: #5baa91;
     border-radius: 1rem;
     display: flex;
     flex-direction: row;
@@ -40,13 +41,13 @@ body {
     height: fit-content;
 }
 
-.filtro .filtro-value{
+.filtro .filtro-value {
     padding-left: 0.5rem;
 }
 
 .catalogo {
     width: 100%;
-    background-color: blue;
+    background-color: #077a54;
     border-radius: 1rem;
     overflow: scroll;
 }
@@ -57,10 +58,11 @@ body {
 }
 
 .tarjetas .tarjeta {
-    background-color: rgb(177, 177, 177);
+    background-color: #b1b1b1;
     padding: 0.5rem;
     border-radius: 0.8rem;
     width: 18rem;
+    margin: 3px;
 }
 
 .tarjeta .img-tarjeta {
@@ -76,10 +78,6 @@ body {
     align-self: center;
 }
 
-.tarjeta .card-link {
-    cursor: pointer;
-}
-
 .img-tarjeta img {
     position: absolute;
     height: 16rem;
@@ -89,6 +87,30 @@ body {
     left: -9999px;
     right: -9999px;
     margin: auto;
+}
+
+.tarjeta .card-body {
+    background-color: #077a54;
+    border-radius: 0 0 1rem 1rem;
+    padding: 0.7rem;
+    margin-top: 0.25rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s ease-out;
+}
+
+.tarjeta .card-body:hover {
+    background-color: #056646;
+    transform: scale(1.05);
+}
+
+.tarjeta .card-body .card-link {
+    color: white;
+}
+
+.nav-tabs .nav-link[aria-selected='false']{
+    color: white;
 }
 
 form ul {
@@ -124,7 +146,6 @@ form label {
     flex-direction: column;
 }
 
-
 .lista-contactos .lista-header {
     height: 3rem;
     padding-left: 2rem;
@@ -140,7 +161,7 @@ form label {
 }
 
 .lista-body .contacto {
-    height: 3.5rem;
+    height: fit-content;
     padding-left: 1.5rem;
     border-bottom: 5px solid;
     border-color: rgba(0, 0, 0, 0.219);
@@ -148,8 +169,8 @@ form label {
     display: flex;
     align-items: center;
 }
-.contacto.selected{
-    background-color: rgb(157, 224, 203);    
+.contacto.selected {
+    background-color: rgb(157, 224, 203);
 }
 
 .lista-contactos .lista-body .contacto:first-child {
@@ -177,7 +198,7 @@ form label {
 
 .chat-box .chat-body {
     height: calc(100% - 3rem);
-    background-color: rgb(136, 136, 136);
+    background-color: #a69ee7;
     border-radius: 0 0 1.5rem 0;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -222,8 +243,8 @@ form label {
 .chat-body .chat-input {
     width: 98%;
     height: 3rem;
-    background-color: rgb(4, 124, 84);
-    border: 5px solid rgb(2, 94, 63);
+    background-color: #047c54;
+    border: 5px solid #025e3f;
     border-radius: 2rem 2rem 2rem 2rem;
     margin-right: auto;
     margin-left: auto;
@@ -244,6 +265,13 @@ form label {
     line-height: 1px;
 }
 
+.contacto-form {
+    background-color: rgb(4, 124, 84);
+    border-radius: 1rem;
+    padding: 1rem;
+    width: fit-content;
+    color: white;
+}
 /* MEDIAS */
 
 @media (min-width: 1600px) {

@@ -27,10 +27,12 @@ function construyeCatalogo() {
 }
 
 const crearTarjetas = () => {
+    contenedorTarjetas.innerHTML = '';
     let lista = catalogo.listaProfesores;
 
     for (let i = 0; i < lista.length; i++) {
-        if (nivelSel.value != lista[i].nivelProf && nivelSel != 'todo') {
+        if (nivelSel.value !== lista[i].nivelProf && nivelSel.value !== 'todo') {
+            console.log(nivelSel.value);
             continue;
         }
         console.log(lista[i]);
@@ -74,9 +76,9 @@ const crearTarjetas = () => {
         desc.textContent = lista[i].descProf;
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
+        cardBody.setAttribute("onclick", `contactar(${id})`);
         const link = document.createElement("a");
         link.classList.add("card-link");
-        link.setAttribute("onclick", `contactar(${id})`);
         link.textContent = "Contactar";
 
         cardBody.append(link);
@@ -100,9 +102,7 @@ const contactar = (id) => {
         .then((res) => res.json())
         .then((res) => {
             console.log(res);
-            /* if(res === true){
-                window.location.href = "cuenta_alumno.php";
-            } */
+            alert('Profesor contactado, la conversación a comenzado.');
         })
         .catch((error) => console.log(error));
 };

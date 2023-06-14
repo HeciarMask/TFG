@@ -105,8 +105,13 @@ const enviarMsg = () => {
 const agregaInfo = (profesor) => {
     perfilForm.nombre.value = profesor.nombreProf;
     perfilForm.desc.value = profesor.descProf;
-    perfilForm.nivel.value = profesor.nivelProf;
     perfilForm.passwd.value = profesor.claveProf;
+
+    if (profesor.nivelProf === "") {
+        perfilForm.nivel.value = "todo";
+    } else {
+        perfilForm.nivel.value = profesor.nivelProf;
+    }
 };
 
 const pideInfo = () => {
@@ -132,19 +137,21 @@ const pideInfo = () => {
 };
 
 const borrarCuenta = () => {
-    var formData = new FormData();
-    formData.append("correo", correoUser);
-    fetch("borrarCuenta.php", {
-        method: "POST",
-        body: formData,
-    })
-        .then((res) => res.json())
-        .then((res) => {
-            if(res === true){
-                location.reload();
-            }
+    if (confirm("¿Estas seguro de que quieres eliminar tu cuenta?")) {
+        var formData = new FormData();
+        formData.append("correo", correoUser);
+        fetch("borrarCuenta.php", {
+            method: "POST",
+            body: formData,
         })
-        .catch((error) => console.log(error));
+            .then((res) => res.json())
+            .then((res) => {
+                if (res === true) {
+                    location.reload();
+                }
+            })
+            .catch((error) => console.log(error));
+    }
 };
 
 const contactos = document.getElementsByClassName("contacto");

@@ -75,8 +75,10 @@ if (!comprobar_usuario($_SESSION['correo'])) {
                                     <li>
                                         <label for="id-nivel">Nivel educativo:</label>
                                         <select name="nivel" id="id-nivel">
+                                            <option value="todo">Cualquiera</option>
                                             <option value="uni">Universidad</option>
-                                            <option value="grad">Grados</option>
+                                            <option value="gsup">Grado Superior</option>
+                                            <option value="gmed">Grado Medio</option>
                                             <option value="bach">Bachillerato</option>
                                             <option value="eso">ESO</option>
                                             <option value="prim">Primaria</option>
