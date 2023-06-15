@@ -158,13 +158,16 @@ const contactos = document.getElementsByClassName("contacto");
 
 for (const contacto of contactos) {
     contacto.addEventListener("click", abrirChat);
+    console.log(contacto);
 }
 
 if (contactos !== null) {
     seleccionado = contactos[0];
-    seleccionado.classList.add("selected");
-    idSel = seleccionado.id;
-    seleccionado.click();
+    if (seleccionado !== undefined) {
+        seleccionado.classList.add("selected");
+        idSel = seleccionado.id;
+        seleccionado.click();
+    }
 }
 document.addEventListener("submit", modificarCuenta);
 inputBtn.addEventListener("click", enviarMsg);

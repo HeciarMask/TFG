@@ -1,0 +1,28 @@
+Durante el despliegue, algunos comandos fetch pueden fallar.
+El más reccurrente es el que se encarga de recibir los mensajes
+de la base de datos.
+
+Un profesor no puede comenzar conversación con un alumno,
+tiene que ser al revés, ya que es el alumno el que está
+buscando profesor y no al revés.
+
+A la hora de registrarse se necesita:
+- Un correo valido.
+- Una contraseña de al menos 8 caracteres, 1 minúscula, 1 mayúscula y 1 número.
+- El campo del nombre no puede estar vacio.
+- Recuerde seleccionar el tipo de usuario que es (Alumno o Profesor).
+
+Usuarios de Ejemplo:
+CORREO            | CONTRASEÑA
+profe@profe.com   | Profesor22
+alumno@alumno.com | alumno
+
+
+Administrador:
+Se accede al login de administrador añadiendo '/admin/' (url/admin/)
+al trás la dirección de la página. Lo encontré util en durante las prácticas,
+ya que así los usuarios no experimentados con el funcionamento de una página web
+nunca entrarán en el login de administrador.
+
+CORREO            | CONTRASEÑA
+admin@admin.com   | admin
