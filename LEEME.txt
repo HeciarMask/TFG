@@ -26,3 +26,6 @@ nunca entrarán en el login de administrador.
 
 CORREO            | CONTRASEÑA
 admin@admin.com   | admin
+
+
+IP Elástica: 35.170.24.161
